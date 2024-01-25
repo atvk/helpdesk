@@ -16,5 +16,5 @@ export type Listing = {
   telegram_last_name: string;
   telegram_language_code: "en" | "ru";
   state: "PUBLISHED" | "APPROVED" | "CREATED" | "NEW";
+  city_iata_code: "LON" | "SPB" | "DXB";
 };
-

@@ -1,5 +1,5 @@
 import type { NextApiHandler } from "next";
-import { listingsMock } from "@/domains/listing/mocks";
+import { listingsMock } from "../../../domains/listing/mocks";
 
 const handler: NextApiHandler = async (req, res) => {
   res.status(200).send(listingsMock);

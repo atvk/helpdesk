@@ -2,7 +2,7 @@ import { Listing } from "./types";
 export const listingsMock: Listing[] = [
   {
     id: "bb2311ce-7ab5-4d08-8640-024eea73b650",
-    property_type:"FULL_TWO_BED",
+    property_type: "FULL_TWO_BED",
     created_datetime: "2024-01-15T15:21:24.704Z",
     updated_datetime: "2024-01-15T15:21:24.704Z",
     personal_info_updated_datetime: "2024-01-15T15:21:24.704Z",
@@ -18,10 +18,11 @@ export const listingsMock: Listing[] = [
     telegram_last_name: "Koshy",
     telegram_language_code: "en",
     state: "NEW",
+    city_iata_code: "LON",
   },
   {
     id: "bb2311ce-7ab5-4d08-8640-024eea73b651",
-    property_type:"FULL_TWO_BED",
+    property_type: "FULL_TWO_BED",
     created_datetime: "2024-01-15T15:21:24.704Z",
     updated_datetime: "2024-01-15T15:21:24.704Z",
     personal_info_updated_datetime: "2024-01-15T15:21:24.704Z",
@@ -37,10 +38,11 @@ export const listingsMock: Listing[] = [
     telegram_last_name: "Steblovskiy",
     telegram_language_code: "ru",
     state: "NEW",
+    city_iata_code: "SPB",
   },
   {
     id: "bb2311ce-7ab5-4d08-8640-024eea73b652",
-    property_type:"FULL_ONE_BED",
+    property_type: "FULL_ONE_BED",
     created_datetime: "2024-01-15T15:21:24.704Z",
     updated_datetime: "2024-01-15T15:21:24.704Z",
     personal_info_updated_datetime: "2024-01-15T15:21:24.704Z",
@@ -56,5 +58,6 @@ export const listingsMock: Listing[] = [
     telegram_last_name: "Dick",
     telegram_language_code: "en",
     state: "CREATED",
+    city_iata_code: "DXB",
   },
 ];

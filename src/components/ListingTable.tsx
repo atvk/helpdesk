@@ -1,11 +1,11 @@
-import Link from 'next/link'
+
 async function fetchData() {
-  const res = await fetch("http://localhost:3001/user");
+  const res = await fetch("http://localhost:3000/api/listings");
   const result = await res.json();
   return result;
 }
 
-const Listing = async function Listing() {
+export const ListingTable = async() => {
   const res = await fetchData();
 
   return (
@@ -56,7 +56,7 @@ const Listing = async function Listing() {
             
           <tr>
             <td className="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
-            <Link href={`/form/` + elements.id} className="bg-red-100 text-black p-5 underline">{elements.id}</Link>
+            <td className="whitespace-nowrap px-3 py-5 text-sm text-gray-500">{elements.id}</td>
               </td>
               <td className="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
                 {elements.created_datetime}
@@ -111,4 +111,4 @@ const Listing = async function Listing() {
   );
 };
 
-export default Listing;
+

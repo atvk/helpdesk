@@ -1,19 +1,9 @@
-import Listing from './components/Listing'
+import Link from "next/link"
 
-async function fetchData() {
-  const res = await fetch("http://localhost:3001/user");
-  const result = await res.json();
-  return result
-}
-
-export default async function Helpdesk() {
-  const res = await fetchData();
-
+export default function adminPanel() {
   return (
-    <main className="flex gap-10 justify-center"> 
-    <div className="w-200"><Listing/></div>
-    <div className="w-200"></div>
-    
+    <main className="flex gap-10 justify-center">
+      <Link href="http://localhost:3000/listings">Listins</Link>
     </main>
   );
 }
