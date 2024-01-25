@@ -1,6 +1,7 @@
 import type { InferGetStaticPropsType, GetStaticProps } from "next";
 import type { Listing } from "../../domains/listing/types";
 import { useState } from "react";
+import Link from "next/link"
 
 export const getStaticProps = (async (context) => {
   const res = await fetch("http://localhost:3000/api/listings");
@@ -17,6 +18,7 @@ export function ListingsPage({
 
   return (
     <div>
+      <Link href=".">Home</Link>
       <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
         <table className="min-w-full divide-y divide-gray-300">
           <thead>
