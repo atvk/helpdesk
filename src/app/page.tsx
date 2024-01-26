@@ -1,9 +1,12 @@
 import Link from "next/link"
+import ListingTable from "@/components/ListingTable"
+import Hydration from "@/components/Hydration";
 
 export default function adminPanel() {
   return (
-    <main className="flex gap-10 justify-center">
-      <Link href="./listings">Listins</Link>
-    </main>
+    <Hydration>
+      <Link href="./listings" className="m-10">Listins</Link>
+      <ListingTable />
+    </Hydration>
   );
 }

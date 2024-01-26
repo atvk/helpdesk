@@ -1,4 +1,4 @@
-const Header = () => {
+export default function Header () {
   return (
     <header className="lg:flex lg:items-center lg:justify-between m-10">
       <div className="min-w-0 flex-1">
@@ -20,5 +20,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;
