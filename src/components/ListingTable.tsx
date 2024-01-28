@@ -2,7 +2,11 @@
 import type { Listing } from "../domains/listing/types";
 import { useEffect, useState } from "react";
 import Link from "next/link"
-
+import Form from "@/components/Form"
+import CopyButton from "@/components/CopyButton"
+import ApproveButton from "@/components/ApproveButton"
+import RejectButton from "@/components/RejectButton"
+import EditButton from "./EditButton";
 export default function ListingTable() {
 
   const [detailsState, setDetailsState] = useState<Listing | null>(null);
@@ -79,34 +83,41 @@ export default function ListingTable() {
           </tbody>
         </table>
       </div>{detailsState !== null ? (
+
         <form className="w-full">
           <div className="space-y-10 sm:space-y-50">
             <section>
-              <div className="flex justify-between mx-10 text-left text-sm font-semibold text-gray-700 sm:pl-0">
+              <div className="flex justify-between ml-10 text-left text-sm font-semibold text-gray-700 sm:pl-0">
                 <div>
-                  <h2 className="text-base font-semibold leading-7 text-gray-900">Listing ID: {detailsState.id} </h2>
+                  <div className="flex gap-2">
+                    <h2 className="text-base font-semibold leading-7 text-gray-900">Listing ID: {detailsState.id} </h2>
+                    <CopyButton textToCopy={detailsState.id} />
+                  </div>
                   <p className="max-w-2xl text-sm leading-6 text-gray-600">
                     Submited:
                   </p>
                 </div>
                 <div className="space-x-5">
-                  <button className="inline-flex items-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-900" >Approve</button>
-                  <button className="inline-flex items-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-900" >Reject</button>
+                  <ApproveButton />
+                  <RejectButton />
                 </div>
               </div>
             </section>
             <section>
-              <div className="grid mx-10 text-left text-sm font-semibold text-gray-700 sm:pl-0">
+              <div className="grid ml-10 text-left text-sm font-semibold text-gray-700 sm:pl-0">
 
                 <h2 className="text-base font-semibold leading-7 text-gray-900">Post</h2>
                 <span className="max-w-2xl text-sm leading-6 text-gray-600">
                   ID: {detailsState.id}
                 </span>
-                <span className="max-w-2xl text-sm leading-6 text-gray-600">
-                  First name: {detailsState.first_name}
+                <span className="max-w-2xl space-x-2 text-sm leading-6 text-gray-600">
+                  <span>First name: {detailsState.first_name}</span>
+                  <EditButton />
                 </span>
-                <span className="max-w-2xl text-sm leading-6 text-gray-600">
-                  Last name: {detailsState.last_name}
+
+                <span className="max-w-2xl space-x-2 text-sm leading-6 text-gray-600">
+                  <span>Last name: {detailsState.last_name}</span>
+                  <EditButton />
                 </span>
                 <span className="max-w-2xl text-sm leading-6 text-gray-600">
                   Telegram:
@@ -125,7 +136,7 @@ export default function ListingTable() {
               </div>
             </section>
             <section>
-              <div className="grid mx-10 text-left text-sm font-semibold text-gray-700 sm:pl-0">
+              <div className="grid ml-10 text-left text-sm font-semibold text-gray-700 sm:pl-0">
                 <h2 className="text-base font-semibold leading-7 text-gray-900">Location</h2>
                 <span className="max-w-2xl text-sm leading-6 text-gray-600">
                   City IATA code
@@ -161,11 +172,6 @@ export default function ListingTable() {
               Close
             </button>
           </div>
-
-
-
-
-
         </form>
 
       ) : null}
