@@ -1,9 +1,9 @@
 
-import { useCopyToClipBoard } from "../hooks/useCopyToClipBoard"
+import { useCopy } from "../hooks/useCopy"
 
-const CopyButton = ({ textToCopy }) => {
+export default function CopyButton ({ textToCopy }){
 
-  const [isCopied, handleCopy] = useCopyToClipBoard();
+  const [isCopied, handleCopy] = useCopy();
 
   return (
     <button
@@ -18,5 +18,3 @@ const CopyButton = ({ textToCopy }) => {
     </button>
   )
 }
-
-export default CopyButton

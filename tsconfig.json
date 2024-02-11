@@ -18,11 +18,25 @@
         "name": "next"
       }
     ],
-    
+
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/CopyButton.jsx", "src/app/Copy/page.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/components/CopyButton.jsx",
+    "src/app/Copy/page.tsx",
+    "src/app/edit/page.jsx",
+    "src/components/FormTest.jsx",
+    "src/app/edit-test/page.jsx",
+    "src/app/form/page.tsx",
+    "src/components/EditButton.tsx",
+    "src/app/users/page.tsx",
+    "src/app/users/[id]/page.jsx"
+, "src/app/page.tsx", "src/components/TableListings.tsx"  ],
   "exclude": ["node_modules"]
 }
