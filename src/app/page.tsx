@@ -18,18 +18,6 @@ export default function BackOffice() {
   const { data: listings, loading, error } = useFetch('http://localhost:3000/api/listings')
   const [selectedListing, setSelectedListing] = useState<Listing | null>(null);
 
-  
-  function handleChangeListing(nextListing:string) {
-		setSelectedListing(listings.map(t => {
-			if (t.id === nextListing.id) {
-				return nextListing;
-			} else {
-				return t;
-			}
-		}));
-	}
-
-
   return (
     <Hydration>
       <main className="flex gap-10 mx-10">
@@ -52,9 +40,9 @@ export default function BackOffice() {
               // TODO: Change host using nextHost
               // TODO: Update table data
             }}
-          /> : null}   
+          /> : null}
       </main>
-     { listings && <UserInformation listings={listings} onChangeListing={handleChangeListing}/>}
+     
     </Hydration>
   );
 }
