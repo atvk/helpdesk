@@ -1,52 +1,44 @@
 import type { Listing } from "@/domains/listing/types"
 import { useState } from "react"
-import HostInfo from "@/components/HostInfo"
-import HostForm from "@/components/HostForm"
+import UserInfo from "@/components/UserInfo"
+import UserForm from "@/components/UserForm"
 
-type Host = {
-  id: string;
-  firstName: string;
-  lastName: string;
-}
 
-type HostListingDetailsProps = {
+type UserListingDetailsProps = {
   listing: Listing;
-  host: Host;
-  onHostChange: (host: Host) => void;
-
+  onListingChange: (listing: Listing) => void;
 }
 
-type HostDetailsState = {
+type UserDetailsState = {
   type: 'read' | 'edit';
 }
 
-export default function UserListingDetails({ listing, onHostChange }: HostListingDetailsProps) {
+export default function UserListingDetails({ listing, onListingChange }: UserListingDetailsProps) {
 
-  const [hostFormState, setHostFormState] = useState<HostDetailsState>({
+  const [userFormState, setUserFormState] = useState<UserDetailsState>({
     type: 'read'
   })
 
-  switch (hostFormState.type) {
+  switch (userFormState.type) {
     case "read":
       return (
         <div>
-          <HostInfo
-            host={listing}
-            onEditButtonClick={() => { setHostFormState({ type: 'edit' }) }}
+          <UserInfo 
+          listing={listing}
+          onEditButtonClick={() => { setUserFormState({ type: 'edit' }) }}
           />
         </div>
       )
     case "edit":
       return (
         <div>
-          <HostForm
-            host={listing}
-            onSubmit={(nextHost: Host) => {
-              onHostChange(nextHost)
-              setHostFormState({
-                type: 'read'
-              })
-            }}
+          <UserForm
+            listing={listing}
+            onSubmit={(nextListing: Listing) => {
+                onListingChange(nextListing)
+                setUserFormState({ type: 'read' })
+              }
+            }
           />
         </div>
 

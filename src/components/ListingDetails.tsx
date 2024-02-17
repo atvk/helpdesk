@@ -5,21 +5,25 @@ import UserListingDetails from "@/components/UserListingDetails";
 import UserInformation from "@/components/UserInformation";
 
 
+
 type ListingDetailsProps = {
 	listing: Listing;
 	onCloseClick: () => void;
 	onApprove: () => void;
 	onReject: () => void;
-	onHostChange: () => void;
+	onListingChange: (nextListing:Listing) => void;
 };
 
-export default function ListingDetails({ listing, onCloseClick, onApprove, onReject, onHostChange }: ListingDetailsProps) {
+export default function ListingDetails({ listing, onCloseClick, onApprove, onReject, onListingChange}: ListingDetailsProps) {
 
 	return (
 		<div className="w-full divide-y divide-gray-300" >
 			<HeaderListingDetails listing={listing} onApprove={onApprove} onReject={onReject} />
-			<UserListingDetails listing={listing} onHostChange={onHostChange} />
+			
+			<UserListingDetails listing={listing} onListingChange={onListingChange}/>
+			
 			<UserInformation listing={listing}/>
+			
 			<button
 				type="button"
 				onClick={onCloseClick}

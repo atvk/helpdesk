@@ -1,30 +1,25 @@
+import { Listing } from "@/domains/listing/types"
 
-type Host = {
-  id: string;
-  first_name: string;
-  last_name: string;
-}
-
-type hostInfoProps = {
-  host: Host;
+type userInfoProps = {
+  listing: Listing;
   onEditButtonClick: () => void
 }
 
-export default function HostInfo({ host, onEditButtonClick }: hostInfoProps) {
+export default function UserInfo({ listing, onEditButtonClick }: userInfoProps) {
 
   return (
     <div className="flex flex-col gap-5 mt-5">
       <div className="flex">
         <span className="flex py-1.5 w-1/3">ID:</span>
-        <span className="flex py-1.5 w-full" >{host.id}</span>
+        <span className="flex py-1.5 w-full" >{listing.id}</span>
       </div>
       <div className="flex">
         <span className="flex py-1.5 w-1/3">First name:</span>
-        <span className="flex py-1.5 w-full" >{host.first_name}</span>
+        <span className="flex py-1.5 w-full" >{listing.first_name}</span>
       </div>
       <div className="flex">
         <span className="flex py-1.5 w-1/3">Last name:</span>
-        <span className="flex py-1.5 w-full" >{host.last_name}</span>
+        <span className="flex py-1.5 w-full" >{listing.last_name}</span>
       </div>
       <div>
         <button

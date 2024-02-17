@@ -1,6 +1,5 @@
 "use client"
 
-
 import type { Listing } from "@/domains/listing/types"
 
 type TableListingsProps = {

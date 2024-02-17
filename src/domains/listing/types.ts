@@ -1,5 +1,4 @@
 export type Listing = {
-  host: Host;
   id: string;
   property_type: "FULL_ONE_BED" | "FULL_TWO_BED" | "FULL_STUDIO" | "ROOM";
   created_datetime: string;

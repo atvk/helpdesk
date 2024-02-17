@@ -7,16 +7,17 @@ import Hydration from "@/components/Hydration";
 import useFetch from "@/hooks/useFetch";
 import UserInformation from "@/components/UserInformation";
 
-type Host = {
-  id: string;
-  first_name: string;
-  last_name: string;
-}
+
 
 export default function BackOffice() {
 
   const { data: listings, loading, error } = useFetch('http://localhost:3000/api/listings')
   const [selectedListing, setSelectedListing] = useState<Listing | null>(null);
+
+
+  function onListingChange(nextListing: Listing) {
+
+  }
 
   return (
     <Hydration>
@@ -29,20 +30,23 @@ export default function BackOffice() {
         {selectedListing ?
           <ListingDetails
             listing={selectedListing}
+
             onCloseClick={() => { setSelectedListing(null) }}
+
             onApprove={() => {
               //TODO: Handle approve
             }}
             onReject={() => {
               // TODO: Handle reject
             }}
-            onHostChange={() => {
-              // TODO: Change host using nextHost
+            onListingChange={(nextListing: Listing) => {
+              onListingChange
+              // TODO: Change listing using nextListing
               // TODO: Update table data
             }}
           /> : null}
       </main>
-     
+
     </Hydration>
   );
 }
