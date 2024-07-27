@@ -1,8 +1,6 @@
 "use client"
 import type { Listing } from "@/domains/listing/types"
-import HeaderListingDetails from "@/components/HeaderListingDetails";
 import UserListingDetails from "@/components/UserListingDetails";
-import UserInformation from "@/components/UserInformation";
 
 type ListingDetailsProps = {
 	listing: Listing;

@@ -37,7 +37,7 @@ export default function UserForm({ listing }: listingFormProps) {
         <input 
         className="text-gray-700 sm:text-xs ld:text-base rounded-md py-1.5 h-5 border border-pink-800"
         value={listing.first_name}
-        onChange={e=>setValueForm(e.target.value)}
+        onChange={e=>setValueForm}
         ></input>
       </div>
      
