@@ -3,7 +3,6 @@ import { useState } from "react"
 import UserInfo from "@/components/UserInfo"
 import UserForm from "@/components/UserForm"
 
-
 type UserListingDetailsProps = {
   listing: Listing;
   onListingChange: (listing: Listing) => void;
@@ -23,25 +22,20 @@ export default function UserListingDetails({ listing, onListingChange }: UserLis
     case "read":
       return (
         <div>
-          <UserInfo 
-          listing={listing}
-          onEditButtonClick={() => { setUserFormState({ type: 'edit' }) }}
+          <UserInfo
+            listing={listing}
+            onEditButtonClick={() => { setUserFormState({ type: 'edit' }) }}
           />
         </div>
       )
     case "edit":
       return (
         <div>
-          <UserForm
+          <UserInfo
             listing={listing}
-            onSubmit={(nextListing: Listing) => {
-                onListingChange(nextListing)
-                setUserFormState({ type: 'read' })
-              }
-            }
+            onEditButtonClick={() => { setUserFormState({ type: 'edit' }) }}
           />
         </div>
-
       )
   }
 }

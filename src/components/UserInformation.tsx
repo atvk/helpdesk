@@ -8,7 +8,7 @@ type UserInfoProps = {
 export default function UserInformation({ listing }: UserInfoProps) {
 
   const [edit, setEdit] = useState(false);
-  const [id, setId] = useState(listing.id);
+  const [valueForm, setValueForm] = useState(listing.id);
 
   let Content;
 
@@ -19,8 +19,8 @@ export default function UserInformation({ listing }: UserInfoProps) {
         <input
           className="flex w-full rounded-md border-0 py-1.5 text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           type="text"
-          value={id}
-          onChange={(e) => setId(e.target.value)}
+          value={valueForm}
+          onChange={(e) => setValueForm(e.target.value)}
         />
         <button
           className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -33,7 +33,7 @@ export default function UserInformation({ listing }: UserInfoProps) {
     Content = (
       <div className="flex w-full mt-5 gap-5">
         <div className="font-bold py-1.5">ID:</div>
-        <div className="flex w-full py-1.5 text-gray-600">{id}</div>
+        <div className="flex w-full py-1.5 text-gray-600">{valueForm}</div>
         <button
           className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           onClick={() => setEdit(true)}>

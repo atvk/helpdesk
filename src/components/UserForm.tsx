@@ -1,73 +1,46 @@
-import { listingsMock } from "@/domains/listing/mocks";
 import { Listing } from "@/domains/listing/types"
 import { useState } from "react"
+import { useForm, SubmitHandler, Controller } from "react-hook-form"
 
 type listingFormProps = {
-  listing: Listing;
-  onSubmit: (nextListing: Listing) => void;
+  listing: Listing,
+  firstName:string,
 }
 
-export default function UserForm({ listing, onSubmit }: listingFormProps) {
+export default function UserForm({ listing }: listingFormProps) {
 
-  const [value, setValue] = useState(listing)
+  const { handleSubmit, register,
+    formState: { errors },
+  } = useForm<listingFormProps>({})
+
+  const onSubmit = (data: listingFormProps) => {
+  alert(`your name is ${listing.first_name}`)}
+
+  const[valueForm, setValueForm] = useState<listingFormProps>()
 
   return (
-    <form>
-      <div className="flex flex-col gap-5 mt-5">
-
-        <div className="flex">
-          <span className="flex py-1.5 w-1/3">ID:</span>
-          <input
-            type='text'
-            name='id'
-            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            value={value.id}
-            onChange={(event) => {
-              setValue({
-                ...value,
-                id: event.target.value,
-              })
-            }} />
-        </div>
-        <div className="flex">
-          <span className="flex py-1.5 w-1/3">First name</span>
-          <input
-            type='text'
-            name='first_name'
-            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            value={value.first_name}
-            onChange={(event) => {
-              setValue({
-                ...value,
-                first_name: event.target.value,
-              })
-            }} />
-
-        </div>
-        <div className="flex">
-          <span className="flex py-1.5 w-1/3">Last name</span>
-          <input
-            type='text'
-            name='last_name'
-            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            value={value.last_name}
-            onChange={(event) => {
-              setValue({
-                ...value,
-                last_name: event.target.value,
-              })
-            }} />
-
-        </div>
-
-        <div>
-          <button
-            className="my-5 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            onClick={() => {onSubmit(value)}}>
-            Save
-          </button>
-        </div>
+    <form
+      className="grid m-2 overflow-auto"
+      onSubmit={handleSubmit(onSubmit)}>
+      <div className="flex justify-between gap-5 items-center border-b border-pink-800 pb-2 mx-2 my-1.5">
+        <h2 className="sm:text-xs ld:text-base truncate py-1.5 font-semibold text-white">User</h2>
+        <button
+          className="flex h-7 w-20 sm:text-xs ld:text-base truncate py-1.5 
+          items-center justify-center text-white rounded-md bg-pink-900 
+          px-3 hover:bg-pink-700 focus-visible:outline-offset-2 focus-visible:outline-pink-700"
+        >
+          Save
+        </button>
       </div>
-    </form>
+      <div className="grid grid-cols-2 gap-5 mx-2">
+        <span className="text-gray-300 sm:text-xs ld:text-base truncate font-semibold py-1.5">First name:</span>
+        <input 
+        className="text-gray-700 sm:text-xs ld:text-base rounded-md py-1.5 h-5 border border-pink-800"
+        value={listing.first_name}
+        onChange={e=>setValueForm(e.target.value)}
+        ></input>
+      </div>
+     
+    </form >
   )
 }
