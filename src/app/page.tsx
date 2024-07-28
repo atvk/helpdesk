@@ -8,14 +8,9 @@ import useFetch from "@/hooks/useFetch";
 
 export default function BackOffice() {
 
-  const { data: listings, loading, error } = useFetch('http://localhost:3000/api/listings')
+  const { data: listings, loading, error } = useFetch('https://jennet-live-quickly.ngrok-free.app/api/listings')
   const [selectedListing, setSelectedListing] = useState<Listing | null>(null);
-
-  function handleEscape(e: any) {
-    if (e.key === "Escape") {
-      setSelectedListing(null)
-    }
-  }
+  console.log("hello")
   return (
     <Hydration>
       <main className="w-full">
