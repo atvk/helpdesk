@@ -7,9 +7,10 @@ import Hydration from "@/components/Hydration";
 import useFetch from "@/hooks/useFetch";
 
 export default function BackOffice() {
-  const API_HOST = 'http://localhost:3000/api'
 
-  const { data: listings, loading, error } = useFetch(`${API_HOST}/listings`)
+  console.log(process.env.NEXT_PUBLIC_API_HOST)
+
+  const { data: listings, loading, error } = useFetch(`${process.env.NEXT_PUBLIC_API_HOST}/listings`)
   const [selectedListing, setSelectedListing] = useState<Listing | null>(null);
 
   return (
