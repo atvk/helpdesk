@@ -5,6 +5,7 @@ import TableListings from "@/components/TableListings"
 import ListingDetails from "@/components/ListingDetails"
 import Hydration from "@/components/Hydration";
 import useFetch from "@/hooks/useFetch";
+import ComponentWithError from "@/components/ComponentWihtError"
 
 export default function BackOffice() {
 
@@ -36,7 +37,7 @@ export default function BackOffice() {
           }}
         /> : null}
       </main>
-
+<ComponentWithError/>
     </Hydration>
   );
 }
