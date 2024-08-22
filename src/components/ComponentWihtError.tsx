@@ -16,9 +16,13 @@ export default function ComponentWithError() {
   };
 
   return (
-    <div>
-      <h1>{error}</h1>
-      <button onClick={handleClick}>
+    <div className="m-5">
+      <h1 className="mt-5 mb-5">{error}</h1>
+      <button onClick={handleClick}
+      className="flex sm:text-xs ld:text-base truncate py-1.5 
+          items-center justify-center text-white rounded-md bg-pink-900 
+          px-3 hover:bg-pink-700 focus-visible:outline-offset-2 focus-visible:outline-pink-700"
+        >
                 Make a mistake
             </button>
     </div>

@@ -5,12 +5,8 @@ import TableListings from "@/components/TableListings"
 import ListingDetails from "@/components/ListingDetails"
 import Hydration from "@/components/Hydration";
 import useFetch from "@/hooks/useFetch";
-import ComponentWithError from "@/components/ComponentWihtError"
 
 export default function BackOffice() {
-
-  console.log(process.env.NEXT_PUBLIC_API_HOST)
-
   const { data: listings, loading, error } = useFetch(`${process.env.NEXT_PUBLIC_API_HOST}/listings`)
   const [selectedListing, setSelectedListing] = useState<Listing | null>(null);
 
@@ -20,7 +16,7 @@ export default function BackOffice() {
         <div className="mx-5 my-10">
           {error && <>{error}</>}
           {loading && <>Loading...</>}
-          {listings && <TableListings listings={listings} onClickListing={(listing: Listing) => { setSelectedListing(listing) }} />}
+          {listings && <TableListings selected={selectedListing} listings={listings} onClickListing={(listing: Listing) => { setSelectedListing(listing) }} />}
         </div>
         {selectedListing ? <ListingDetails
           listing={selectedListing}
@@ -37,7 +33,6 @@ export default function BackOffice() {
           }}
         /> : null}
       </main>
-<ComponentWithError/>
     </Hydration>
   );
 }

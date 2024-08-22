@@ -14,7 +14,7 @@ type ListingDetailsProps = {
 export default function ListingDetails({ listing, onCloseClick, onApprove, onReject, onListingChange }: ListingDetailsProps) {
 
 	return (
-		<div className="absolute right-5 left-1/2 top-20 bg-gray-800/80 rounded-xl">
+		<div className="absolute right-5 left-1/2 top-20 h-1/2 bg-gray-800/80">
 			<UserListingDetails listing={listing} onListingChange={onListingChange} />
 			<button
 				type="button"

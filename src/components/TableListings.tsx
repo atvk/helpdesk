@@ -4,35 +4,37 @@ import type { Listing } from "@/domains/listing/types"
 
 type TableListingsProps = {
   listings: Listing[];
+  selected: Listing | null;
   onClickListing: (listing: Listing) => void;
 }
 
-export default function TableListings({ listings, onClickListing }: TableListingsProps) {
+export default function TableListings({ listings, selected, onClickListing }: TableListingsProps) {
+
 
   return (
     <div className="w-full">
-      <table className="table-fixed w-full divide-y divide-gray-400">
+      <table className="w-full ">
         <thead>
           <tr className="py-3.5 pr-30 font-semibold sm:pl-0 ">
-            <th scope="col" className="pl-2 sm:w-10 sm:text-xs ld:text-base truncate py-1.5 text-left font-semibold text-gray-700">State</th>
-            <th scope="col" className="pl-2 sm:w-10 sm:text-xs ld:text-base truncate py-1.5 text-left font-semibold text-gray-700">City</th>
-            <th scope="col" className="pl-2 sm:w-10 sm:text-xs ld:text-base truncate py-1.5 text-left font-semibold text-gray-700">Created date</th>
-            <th scope="col" className="pl-2 sm:w-10 sm:text-xs ld:text-base truncate py-1.5 text-left font-semibold text-gray-700">User</th>
-            <th scope="col" className="pl-2 sm:w-10 sm:text-xs ld:text-base truncate py-1.5 text-left font-semibold text-gray-700">Property</th>
+            <th scope="col" className="pl-2 sm:w-10 sm:text-ms ld:text-base truncate py-1.5 text-left font-semibold text-gray-700">State</th>
+            <th scope="col" className="pl-2 sm:w-10 sm:text-ms ld:text-base truncate py-1.5 text-left font-semibold text-gray-700">City</th>
+            <th scope="col" className="pl-2 sm:w-10 sm:text-ms ld:text-base truncate py-1.5 text-left font-semibold text-gray-700">Created date</th>
+            <th scope="col" className="pl-2 sm:w-10 sm:text-ms ld:text-base truncate py-1.5 text-left font-semibold text-gray-700">User</th>
+            <th scope="col" className="pl-2 sm:w-10 sm:text-ms ld:text-base truncate py-1.5 text-left font-semibold text-gray-700">Property</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-400">
+        <tbody className="">
           {listings.map(listing => (
             <tr
-            className=""
-            key={listing.id}
-              onClick={() => { onClickListing(listing)}}
+              className={selected === listing ? "bg-gray-600/20  border border-pink-800 text-gray-700 cursor-pointer" : ""}
+              key={listing.id}
+              onClick={() => { onClickListing(listing) }}
             >
-              <td className="pl-2 sm:w-10 sm:text-xs ld:text-base truncate py-1.5 text-left text-gray-700">{listing.state}</td>
-              <td className="pl-2 sm:w-10 sm:text-xs ld:text-base truncate py-1.5 text-left text-gray-700">{listing.city_iata_code}</td>
-              <td className="pl-2 sm:w-10 sm:text-xs ld:text-base truncate py-1.5 text-left text-gray-700">{listing.created_datetime}</td>
-              
-              <td className="pl-2 sm:w-10 sm:text-xs ld:text-base truncate py-1.5 text-left text-gray-700">
+              <td className="pl-2 sm:w-10 sm:text-xs ld:text-base truncate py-1.5 text-left">{listing.state}</td>
+              <td className="pl-2 sm:w-10 sm:text-xs ld:text-base truncate py-1.5 text-left">{listing.city_iata_code}</td>
+              <td className="pl-2 sm:w-10 sm:text-xs ld:text-base truncate py-1.5 text-left">{listing.created_datetime}</td>
+
+              <td className="pl-2 sm:w-10 sm:text-xs ld:text-base truncate py-1.5 text-left">
                 <div className="">
                   <div className="">
                     <div className="flex gap-1 truncate">
@@ -55,7 +57,7 @@ export default function TableListings({ listings, onClickListing }: TableListing
                   </div>
                 </div>
               </td>
-              <td className="pl-2 sm:w-10 sm:text-xs ld:text-base truncate py-1.5 text-left text-gray-700">{listing.property_type}</td>
+              <td className="pl-2 sm:w-10 sm:text-xs ld:text-base truncate py-1.5 text-left">{listing.property_type}</td>
             </tr>
           ))}
         </tbody>
